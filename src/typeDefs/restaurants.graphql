@@ -6,5 +6,5 @@ type RestaurantInfo {
 }
 
 type Query {
-  restaurants: [RestaurantInfo]
+  restaurants(location: String!): [RestaurantInfo]
 }
