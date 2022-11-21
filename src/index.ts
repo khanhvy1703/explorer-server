@@ -2,19 +2,14 @@ import { ApolloServer } from '@apollo/server';
 import { readFileSync } from 'fs';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
-const typeDefs = readFileSync('./typeDefs/example.graphql', { encoding: 'utf-8' });
+const typeDefs = readFileSync('./src/typeDefs/restaurants.graphql', { encoding: 'utf-8' });
 
-const books = [
+const mock = [
   {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
+    restaurantId: '2242423',
+    name: 'fsdfdsfs',
+    rating: '4.5',
+    price: '$$$$'
   },
 ];
 
@@ -22,7 +17,7 @@ const books = [
 // This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books,
+    restaurants: () => mock,
   },
 };
 
@@ -37,7 +32,7 @@ const server = new ApolloServer({
 //  1. creates an Express app
 //  2. installs your ApolloServer instance as middleware
 //  3. prepares your app to handle incoming requests
-const {url} =  await startStandaloneServer(server, {
+const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
 });
 

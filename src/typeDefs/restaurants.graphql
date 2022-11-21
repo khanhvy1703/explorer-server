@@ -1,0 +1,10 @@
+type RestaurantInfo {
+  restaurantId: String!
+  name: String!
+  rating: String
+  price: String!
+}
+
+type Query {
+  restaurants: [RestaurantInfo]
+}
