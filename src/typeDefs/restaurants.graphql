@@ -1,10 +1,15 @@
-type RestaurantInfo {
+type BrowseRestaurantInfo {
   restaurantId: String!
   name: String!
-  rating: String
+  image: String
+  rating: Float!
   price: String!
+  yelpReview: Int
+  numReview: Int
+  categories: [String!]
+  transactions: [String!]
 }
 
 type Query {
-  restaurants(location: String!): [RestaurantInfo]
+  restaurants(location: String!): [BrowseRestaurantInfo]
 }

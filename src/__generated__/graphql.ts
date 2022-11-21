@@ -14,22 +14,27 @@ export type Scalars = {
   Float: number;
 };
 
+export type BrowseRestaurantInfo = {
+  __typename?: 'BrowseRestaurantInfo';
+  categories?: Maybe<Array<Scalars['String']>>;
+  image?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  numReview?: Maybe<Scalars['Int']>;
+  price: Scalars['String'];
+  rating: Scalars['Float'];
+  restaurantId: Scalars['String'];
+  transactions?: Maybe<Array<Scalars['String']>>;
+  yelpReview?: Maybe<Scalars['Int']>;
+};
+
 export type Query = {
   __typename?: 'Query';
-  restaurants?: Maybe<Array<Maybe<RestaurantInfo>>>;
+  restaurants?: Maybe<Array<Maybe<BrowseRestaurantInfo>>>;
 };
 
 
 export type QueryRestaurantsArgs = {
   location: Scalars['String'];
-};
-
-export type RestaurantInfo = {
-  __typename?: 'RestaurantInfo';
-  name: Scalars['String'];
-  price: Scalars['String'];
-  rating?: Maybe<Scalars['String']>;
-  restaurantId: Scalars['String'];
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -103,33 +108,42 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  BrowseRestaurantInfo: ResolverTypeWrapper<BrowseRestaurantInfo>;
+  Float: ResolverTypeWrapper<Scalars['Float']>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   Query: ResolverTypeWrapper<{}>;
-  RestaurantInfo: ResolverTypeWrapper<RestaurantInfo>;
   String: ResolverTypeWrapper<Scalars['String']>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean'];
+  BrowseRestaurantInfo: BrowseRestaurantInfo;
+  Float: Scalars['Float'];
+  Int: Scalars['Int'];
   Query: {};
-  RestaurantInfo: RestaurantInfo;
   String: Scalars['String'];
 }>;
 
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  restaurants?: Resolver<Maybe<Array<Maybe<ResolversTypes['RestaurantInfo']>>>, ParentType, ContextType, RequireFields<QueryRestaurantsArgs, 'location'>>;
-}>;
-
-export type RestaurantInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['RestaurantInfo'] = ResolversParentTypes['RestaurantInfo']> = ResolversObject<{
+export type BrowseRestaurantInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['BrowseRestaurantInfo'] = ResolversParentTypes['BrowseRestaurantInfo']> = ResolversObject<{
+  categories?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
+  image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  numReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   price?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  rating?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  rating?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
   restaurantId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  transactions?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
+  yelpReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
+export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
+  restaurants?: Resolver<Maybe<Array<Maybe<ResolversTypes['BrowseRestaurantInfo']>>>, ParentType, ContextType, RequireFields<QueryRestaurantsArgs, 'location'>>;
+}>;
+
 export type Resolvers<ContextType = any> = ResolversObject<{
+  BrowseRestaurantInfo?: BrowseRestaurantInfoResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  RestaurantInfo?: RestaurantInfoResolvers<ContextType>;
 }>;
 
