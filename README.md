@@ -11,7 +11,7 @@ Explorer server contains queries and mutation which returning restaurants and us
 - JavaScript
 - RestAPIs endpoint
 ## Running
-#### Locally
+### Locally
 1. Clone this repo into your machine:
 ```
 get clone https://github.com/khanhvy1703/explorer-server.git
