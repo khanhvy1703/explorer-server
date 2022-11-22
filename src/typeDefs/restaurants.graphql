@@ -1,15 +1,49 @@
 type BrowseRestaurantInfo {
   restaurantId: String!
+  alias: String!
   name: String!
   image: String
   rating: Float!
   price: String!
   yelpReview: Int
   numReview: Int
-  categories: [String!]
+  cuisine: [String!]
   transactions: [String!]
+  isPermanentlyClosed: Boolean
+}
+
+type RestaurantDetail {
+  restaurantId: String!
+  alias: String!
+  name: String!
+  image: String
+  rating: Float!
+  price: String!
+  yelpReview: Int
+  numReview: Int
+  cuisine: [String!]
+  transactions: [String!]
+  isPermanentlyClosed: Boolean
+  isCurrentlyOpen: Boolean
+  location: String
+  photos: [String]
+  openHours: [OpenHours]
+  phone: String
+}
+
+type OpenHours {
+  hoursType: String
+  dailyOpenHours: [DailyOpenHours]
+}
+
+type DailyOpenHours {
+  day: Int
+  start: String!
+  end: String!
+  isOvernight: Boolean
 }
 
 type Query {
-  restaurants(location: String!): [BrowseRestaurantInfo]
+  RestaurantsByLocation(location: String!): [BrowseRestaurantInfo]
+  RestaurantDetail(restaurantId: String!): RestaurantDetail
 }
