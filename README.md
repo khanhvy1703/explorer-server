@@ -1,6 +1,6 @@
 # explorer-server
 ## Introduction
-Explorer server contains queries and mutation for explorer which giving restaurants and users information fetching from APIs (custom APIs and Yelp Fusion API). It has: 
+Explorer server contains queries and mutation which returning restaurants and users information fetching from APIs (custom APIs and Yelp Fusion API). It has: 
 - User Info
 - Restaurant Info 
 ## Tech Stack
