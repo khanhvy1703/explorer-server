@@ -3,6 +3,13 @@
 Explorer server contains queries and mutation for explorer which giving restaurants and users information fetching from APIs (custom APIs and Yelp Fusion API). It has: 
 - User Info
 - Restaurant Info 
+## Tech Stack
+- Node v14
+- Apollo
+- Graphql
+- Typescript
+- JavaScript
+- RestAPIs endpoint
 ## Running
 1. Clone this repo into your machine:
 ```
