@@ -37,6 +37,11 @@ export type DailyOpenHours = {
   start: Scalars['String'];
 };
 
+export type LatLonPosition = {
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+};
+
 export type OpenHours = {
   __typename?: 'OpenHours';
   dailyOpenHours?: Maybe<Array<Maybe<DailyOpenHours>>>;
@@ -56,7 +61,8 @@ export type QueryRestaurantDetailArgs = {
 
 
 export type QueryRestaurantsByLocationArgs = {
-  location: Scalars['String'];
+  location1?: InputMaybe<Scalars['String']>;
+  location2?: InputMaybe<LatLonPosition>;
 };
 
 export type RestaurantDetail = {
@@ -154,6 +160,7 @@ export type ResolversTypes = ResolversObject<{
   DailyOpenHours: ResolverTypeWrapper<DailyOpenHours>;
   Float: ResolverTypeWrapper<Scalars['Float']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
+  LatLonPosition: LatLonPosition;
   OpenHours: ResolverTypeWrapper<OpenHours>;
   Query: ResolverTypeWrapper<{}>;
   RestaurantDetail: ResolverTypeWrapper<RestaurantDetail>;
@@ -167,6 +174,7 @@ export type ResolversParentTypes = ResolversObject<{
   DailyOpenHours: DailyOpenHours;
   Float: Scalars['Float'];
   Int: Scalars['Int'];
+  LatLonPosition: LatLonPosition;
   OpenHours: OpenHours;
   Query: {};
   RestaurantDetail: RestaurantDetail;
@@ -204,7 +212,7 @@ export type OpenHoursResolvers<ContextType = any, ParentType extends ResolversPa
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   RestaurantDetail?: Resolver<Maybe<ResolversTypes['RestaurantDetail']>, ParentType, ContextType, RequireFields<QueryRestaurantDetailArgs, 'restaurantId'>>;
-  RestaurantsByLocation?: Resolver<Maybe<Array<Maybe<ResolversTypes['BrowseRestaurantInfo']>>>, ParentType, ContextType, RequireFields<QueryRestaurantsByLocationArgs, 'location'>>;
+  RestaurantsByLocation?: Resolver<Maybe<Array<Maybe<ResolversTypes['BrowseRestaurantInfo']>>>, ParentType, ContextType, Partial<QueryRestaurantsByLocationArgs>>;
 }>;
 
 export type RestaurantDetailResolvers<ContextType = any, ParentType extends ResolversParentTypes['RestaurantDetail'] = ResolversParentTypes['RestaurantDetail']> = ResolversObject<{

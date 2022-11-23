@@ -33,31 +33,42 @@ export function checkIfOpening(open) {
 export const resolvers = { 
   Query: {
     RestaurantsByLocation: async (parent, args) => {
-      const {location} = args
-      let restaurants = []
-      const res = await fetch(`${YELP_BASE_URL}/businesses/search?location=${location}`, {
-        method: 'GET',
-        headers: {'Authorization': 'Bearer ' + YELP_API_KEY}
-      }).then(res => res.json())
-      const data = res.businesses
-      data.forEach(element => {
-        const {id, alias, name, image_url, rating, price, review_count, categories, transactions, is_closed } = element
-        return restaurants.push({
-          restaurantId: id,
-          alias,
-          name,
-          image: image_url,
-          rating,
-          price,
-          yelpReview: review_count,
-          numReview: 0,
-          cuisine: categories.map(element => element.title),
-          transactions,
-          isPermanentlyClosed: !!is_closed
-        })
-      });
-
-      return restaurants    
+      const {location1, location2 } = args
+      try {
+        let restaurants = []
+        let url;
+        if (location1) {
+          url = `${YELP_BASE_URL}/businesses/search?location=${location1}`
+        } else if (location2) {
+          const {latitude, longitude} = location2
+          url = `${YELP_BASE_URL}/businesses/search?latitude=${latitude}&longitude=${longitude}`
+        }
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: {'Authorization': 'Bearer ' + YELP_API_KEY}
+        }).then(res => res.json())
+        const data = res.businesses
+        data.forEach(element => {
+          const {id, alias, name, image_url, rating, price, review_count, categories, transactions, is_closed } = element
+          return restaurants.push({
+            restaurantId: id,
+            alias,
+            name,
+            image: image_url,
+            rating,
+            price,
+            yelpReview: review_count,
+            numReview: 0,
+            cuisine: categories.map(element => element.title),
+            transactions,
+            isPermanentlyClosed: !!is_closed
+          })
+        });
+        return restaurants  
+      } catch (error) {
+        console.log(error);
+        return null
+      }
     },
 
     RestaurantDetail: async (parent, args) => {

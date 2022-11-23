@@ -43,7 +43,12 @@ type DailyOpenHours {
   isOvernight: Boolean
 }
 
+input LatLonPosition {
+  latitude: Float! 
+  longitude: Float!
+}
+
 type Query {
-  RestaurantsByLocation(location: String!): [BrowseRestaurantInfo]
+  RestaurantsByLocation(location1: String, location2: LatLonPosition): [BrowseRestaurantInfo]
   RestaurantDetail(restaurantId: String!): RestaurantDetail
 }
