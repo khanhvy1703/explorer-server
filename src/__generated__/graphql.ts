@@ -16,25 +16,25 @@ export type Scalars = {
 
 export type BrowseRestaurantInfo = {
   __typename?: 'BrowseRestaurantInfo';
-  alias: Scalars['String'];
-  cuisine?: Maybe<Array<Scalars['String']>>;
+  alias?: Maybe<Scalars['String']>;
+  cuisine?: Maybe<Array<Maybe<Scalars['String']>>>;
   image?: Maybe<Scalars['String']>;
   isPermanentlyClosed?: Maybe<Scalars['Boolean']>;
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   numReview?: Maybe<Scalars['Int']>;
-  price: Scalars['String'];
-  rating: Scalars['Float'];
-  restaurantId: Scalars['String'];
-  transactions?: Maybe<Array<Scalars['String']>>;
+  price?: Maybe<Scalars['String']>;
+  rating?: Maybe<Scalars['Float']>;
+  restaurantId?: Maybe<Scalars['String']>;
+  transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
 };
 
 export type DailyOpenHours = {
   __typename?: 'DailyOpenHours';
   day?: Maybe<Scalars['Int']>;
-  end: Scalars['String'];
+  end?: Maybe<Scalars['String']>;
   isOvernight?: Maybe<Scalars['Boolean']>;
-  start: Scalars['String'];
+  start?: Maybe<Scalars['String']>;
 };
 
 export type LatLonPosition = {
@@ -67,21 +67,21 @@ export type QueryRestaurantsByLocationArgs = {
 
 export type RestaurantDetail = {
   __typename?: 'RestaurantDetail';
-  alias: Scalars['String'];
-  cuisine?: Maybe<Array<Scalars['String']>>;
+  alias?: Maybe<Scalars['String']>;
+  cuisine?: Maybe<Array<Maybe<Scalars['String']>>>;
   image?: Maybe<Scalars['String']>;
   isCurrentlyOpen?: Maybe<Scalars['Boolean']>;
   isPermanentlyClosed?: Maybe<Scalars['Boolean']>;
   location?: Maybe<Scalars['String']>;
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   numReview?: Maybe<Scalars['Int']>;
   openHours?: Maybe<Array<Maybe<OpenHours>>>;
   phone?: Maybe<Scalars['String']>;
   photos?: Maybe<Array<Maybe<Scalars['String']>>>;
-  price: Scalars['String'];
-  rating: Scalars['Float'];
-  restaurantId: Scalars['String'];
-  transactions?: Maybe<Array<Scalars['String']>>;
+  price?: Maybe<Scalars['String']>;
+  rating?: Maybe<Scalars['Float']>;
+  restaurantId?: Maybe<Scalars['String']>;
+  transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
 };
 
@@ -182,25 +182,25 @@ export type ResolversParentTypes = ResolversObject<{
 }>;
 
 export type BrowseRestaurantInfoResolvers<ContextType = any, ParentType extends ResolversParentTypes['BrowseRestaurantInfo'] = ResolversParentTypes['BrowseRestaurantInfo']> = ResolversObject<{
-  alias?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  cuisine?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
+  alias?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  cuisine?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   isPermanentlyClosed?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   numReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  price?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  rating?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
-  restaurantId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  transactions?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
+  price?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  rating?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
+  restaurantId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  transactions?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   yelpReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type DailyOpenHoursResolvers<ContextType = any, ParentType extends ResolversParentTypes['DailyOpenHours'] = ResolversParentTypes['DailyOpenHours']> = ResolversObject<{
   day?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  end?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  end?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   isOvernight?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  start?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  start?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -216,21 +216,21 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 }>;
 
 export type RestaurantDetailResolvers<ContextType = any, ParentType extends ResolversParentTypes['RestaurantDetail'] = ResolversParentTypes['RestaurantDetail']> = ResolversObject<{
-  alias?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  cuisine?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
+  alias?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  cuisine?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   isCurrentlyOpen?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   isPermanentlyClosed?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   location?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   numReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   openHours?: Resolver<Maybe<Array<Maybe<ResolversTypes['OpenHours']>>>, ParentType, ContextType>;
   phone?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   photos?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
-  price?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  rating?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
-  restaurantId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  transactions?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
+  price?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  rating?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
+  restaurantId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  transactions?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   yelpReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
