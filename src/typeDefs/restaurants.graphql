@@ -10,6 +10,7 @@ type BrowseRestaurantInfo {
   cuisine: [String]
   transactions: [String]
   isPermanentlyClosed: Boolean
+  yelpURL: String
 }
 
 type RestaurantDetail {
@@ -29,6 +30,7 @@ type RestaurantDetail {
   photos: [String]
   openHours: [OpenHours]
   phone: String
+  yelpURL: String
 }
 
 type OpenHours {

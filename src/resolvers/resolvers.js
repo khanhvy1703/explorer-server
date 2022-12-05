@@ -4,6 +4,9 @@ import { getDay, getHours, getMinutes } from 'date-fns'
 
 dotenv.config();
 const { YELP_API_KEY, YELP_BASE_URL } = process.env
+const YELP_RESTAURANTS_BUSINESS_SEARCH = '/businesses/search?term=restaurant&'
+const DEFAULT_LIMIT = 10
+const YELP_URL = `${YELP_BASE_URL}${YELP_RESTAURANTS_BUSINESS_SEARCH}limit=${DEFAULT_LIMIT}&`
 
 export function formatYelpApisTime(time) {
   const hours = time.substring(0, 2)
@@ -38,10 +41,10 @@ export const resolvers = {
         let restaurants = []
         let url;
         if (location1) {
-          url = `${YELP_BASE_URL}/businesses/search?location=${location1}`
+          url = `${YELP_URL}location=${location1}`
         } else if (location2) {
           const {latitude, longitude} = location2
-          url = `${YELP_BASE_URL}/businesses/search?latitude=${latitude}&longitude=${longitude}`
+          url = `${YELP_URL}latitude=${latitude}&longitude=${longitude}`
         }
         const res = await fetch(url, {
           method: 'GET',
@@ -49,7 +52,7 @@ export const resolvers = {
         }).then(res => res.json())
         const data = res.businesses
         data.forEach(element => {
-          const {id, alias, name, image_url, rating, price, review_count, categories, transactions, is_closed } = element
+          const {id, alias, name, image_url, rating, price, review_count, categories, transactions, is_closed, url } = element
           return restaurants.push({
             restaurantId: id,
             alias,
@@ -61,7 +64,8 @@ export const resolvers = {
             numReview: 0,
             cuisine: categories.map(element => element.title),
             transactions,
-            isPermanentlyClosed: !!is_closed
+            isPermanentlyClosed: !!is_closed,
+            yelpURL: url
           })
         });
         return restaurants  

@@ -27,6 +27,7 @@ export type BrowseRestaurantInfo = {
   restaurantId?: Maybe<Scalars['String']>;
   transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
+  yelpURL?: Maybe<Scalars['String']>;
 };
 
 export type DailyOpenHours = {
@@ -83,6 +84,7 @@ export type RestaurantDetail = {
   restaurantId?: Maybe<Scalars['String']>;
   transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
+  yelpURL?: Maybe<Scalars['String']>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -193,6 +195,7 @@ export type BrowseRestaurantInfoResolvers<ContextType = any, ParentType extends 
   restaurantId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   transactions?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   yelpReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  yelpURL?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -232,6 +235,7 @@ export type RestaurantDetailResolvers<ContextType = any, ParentType extends Reso
   restaurantId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   transactions?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   yelpReview?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  yelpURL?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
