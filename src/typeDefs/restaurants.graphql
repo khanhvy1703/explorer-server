@@ -52,5 +52,5 @@ input LatLonPosition {
 
 type Query {
   RestaurantsByLocation(location1: String, location2: LatLonPosition): [BrowseRestaurantInfo]
-  RestaurantDetail(restaurantId: String!): RestaurantDetail
+  RestaurantDetail(restaurantAlias: String!): RestaurantDetail
 }

@@ -57,7 +57,7 @@ export type Query = {
 
 
 export type QueryRestaurantDetailArgs = {
-  restaurantId: Scalars['String'];
+  restaurantAlias: Scalars['String'];
 };
 
 
@@ -214,7 +214,7 @@ export type OpenHoursResolvers<ContextType = any, ParentType extends ResolversPa
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  RestaurantDetail?: Resolver<Maybe<ResolversTypes['RestaurantDetail']>, ParentType, ContextType, RequireFields<QueryRestaurantDetailArgs, 'restaurantId'>>;
+  RestaurantDetail?: Resolver<Maybe<ResolversTypes['RestaurantDetail']>, ParentType, ContextType, RequireFields<QueryRestaurantDetailArgs, 'restaurantAlias'>>;
   RestaurantsByLocation?: Resolver<Maybe<Array<Maybe<ResolversTypes['BrowseRestaurantInfo']>>>, ParentType, ContextType, Partial<QueryRestaurantsByLocationArgs>>;
 }>;
 

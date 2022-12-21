@@ -11,7 +11,7 @@ const YELP_URL = `${YELP_BASE_URL}${YELP_RESTAURANTS_BUSINESS_SEARCH}limit=${DEF
 export function formatYelpApisTime(time) {
   const hours = time.substring(0, 2)
   const minutes = time.substring(2, 4)
-  return `${hours}:${minutes}`
+  return hours === '00' ? `00:00 (Next day)` : `${hours}:${minutes}`
 }
 
 export function checkIfOpening(open) {
@@ -76,8 +76,8 @@ export const resolvers = {
     },
 
     RestaurantDetail: async (parent, args) => {
-      const {restaurantId} = args
-      const response = await fetch(`${YELP_BASE_URL}/businesses/${restaurantId}`, {
+      const {restaurantAlias} = args
+      const response = await fetch(`${YELP_BASE_URL}/businesses/${restaurantAlias}`, {
         method: 'GET',
         headers: {'Authorization': 'Bearer ' + YELP_API_KEY}
       }).then(res => res.json())
@@ -95,7 +95,8 @@ export const resolvers = {
         display_phone,
         hours,
         photos,
-        location
+        location, 
+        url
       } = response
       const {display_address} = location
       const {open} = hours[0]
@@ -131,7 +132,8 @@ export const resolvers = {
         location: formatLocation,
         photos,
         openHours: getOpenHours,
-        phone: display_phone
+        phone: display_phone,
+        yelpURL: url
       }
     }
   }

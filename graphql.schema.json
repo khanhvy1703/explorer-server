@@ -350,7 +350,7 @@
             "description": null,
             "args": [
               {
-                "name": "restaurantId",
+                "name": "restaurantAlias",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
