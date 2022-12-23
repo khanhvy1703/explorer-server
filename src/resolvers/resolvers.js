@@ -37,6 +37,7 @@ export const resolvers = {
   Query: {
     RestaurantsByLocation: async (parent, args) => {
       const {location1, location2 } = args
+      console.log(YELP_URL)
       try {
         let restaurants = []
         let url;
