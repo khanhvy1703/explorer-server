@@ -9,7 +9,7 @@ Explorer server contains queries and mutation which returning restaurants and us
 - Graphql
 - Typescript
 - JavaScript
-- RestAPIs endpoint
+- RestAPIs
 ## Running
 ### Locally
 1. Clone this repo into your machine:
