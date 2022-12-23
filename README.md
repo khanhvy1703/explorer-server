@@ -24,3 +24,6 @@ YELP_BASE_URL=https://api.yelp.com/v3
 3. Run `npm install`
 4. Run `npm start`
 5. 🚀  Server ready at: `http://localhost:4000/`
+### Production
+You can try and play around with the queries here
+`https://explorer-server.herokuapp.com/`
